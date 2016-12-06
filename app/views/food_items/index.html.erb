@@ -1,1 +1,23 @@
-<%= @food_items.inspect %>
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-12'>
+            <% @food_items.each do |food_item| %>
+                <div class="well row <%= cycle('white-bg', '') %>">
+                    <div class='col-sm-4'>
+                        <%= link_to user_food_item_path(id: food_item.id) do %>
+                            <h2><%= food_item.name %></h2>
+                        <% end %>
+                    </div>
+                    <div class='col-sm-4'>
+                        <p>Stock: <%= food_item.stored_amount %> <%= food_item.units %></p>
+                        <p>Best Before: <%= food_item.expiry %></p>
+                    </div>
+                    <div class='col-sm-4'>
+                        <p>Purchased from: <%= food_item.supplier %> on <%= food_item.purchase_date %></p>
+                        <p>Cost: $<%= food_item.price_per_unit %> per <%= food_item.units %></p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
