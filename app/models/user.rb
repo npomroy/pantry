@@ -6,7 +6,7 @@ class User < ApplicationRecord
          
   belongs_to :plan
   has_one :profile
-  has_many :food_item
+  has_many :food_items
   
   attr_accessor :stripe_card_token
   

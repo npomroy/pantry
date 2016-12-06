@@ -4,6 +4,7 @@
             <h1 class='text-center'>Create New Food Item</h1>
             <div class='well'>
                 <%= form_for @food_item, url: user_food_items_path do |f| %>
+                    <!--<%= hidden_field_tag ':user_id', params[:user_id] %>-->
                     <div class='form-group'>
                         <%= f.label :name %>
                         <%= f.text_field :name, class: 'form-control' %>
