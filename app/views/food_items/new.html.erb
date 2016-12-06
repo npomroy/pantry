@@ -1,1 +1,46 @@
-New Food Item
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-6 col-md-offset-3'>
+            <h1 class='text-center'>Create New Food Item</h1>
+            <div class='well'>
+                <%= form_for @food_item, url: user_food_items_path do |f| %>
+                    <div class='form-group'>
+                        <%= f.label :name %>
+                        <%= f.text_field :name, class: 'form-control' %>
+                    </div>
+                    <div class='form-group'>
+                        <%= f.label :units %>
+                        <%= f.select :units, ['mL', 'Cups', 'grams', 'Kg', 'units'], {}, class: 'form-control' %>
+                    </div>
+                    <div class='form-group'>
+                        <%= f.label :supplier %>
+                        <%= f.text_field :supplier, class: 'form-control' %>
+                    </div>
+                    <div class='form-group'>
+                        <%= f.label :price_per_unit %>
+                        <%= f.text_field :price_per_unit, class: 'form-control' %>
+                    </div>
+                    <div class='form-group'>
+                        <%= f.label :stored_amount %>
+                        <%= f.text_field :stored_amount, class: 'form-control' %>
+                    </div>
+                    <div class='form-group'>
+                        <%= f.label :purchase_date %>
+                        <%= f.date_field :purchase_date, class: 'form-control' %>
+                    </div>
+                    <div class='form-group'>
+                        <%= f.label :expiry %>
+                        <%= f.date_field :expiry, class: 'form-control' %>
+                    </div>
+                    <div class='form-group'>
+                        <%= f.label :description %>
+                        <%= f.text_area :description, class: 'form-control' %>
+                    </div>
+                    <div class='form-group'>
+                        <%= f.submit "Create Food Item", class: 'btn btn-primary' %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
