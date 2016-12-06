@@ -17,7 +17,7 @@ class FoodItemsController < ApplicationController
       @food_item.user_id = ( params[:user_id] )
       if @food_item.save
           flash[:success] = "Food Item Created"
-          redirect_to root_path
+          redirect_to user_food_items_path(user_id: current_user.id)
       else
           flash[:success] = "Food Item save Failed"
           render action: :new
@@ -28,6 +28,12 @@ class FoodItemsController < ApplicationController
    def index
         @user = User.find( params[:user_id] )
         @food_items = Food_Item.where("user_id = ?", params[:user_id])
+   end
+   
+   # DELETE /users/:user_id/food_items/:id
+   def destroy
+       Food_Item.find(params[:id]).destroy
+       redirect_to user_food_items_path(user_id: current_user.id)
    end
    
    private

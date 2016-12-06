@@ -1,11 +1,14 @@
 <div class='container'>
     <div class='row'>
+        <div class='col-md-2 col-md-offset-10'>
+            <%= link_to "New Food Item", new_user_food_item_path(user_id: current_user.id), class: 'btn btn-primary food-index-new-btn' %>
+        </div>
         <div class='col-md-12'>
             <% @food_items.each do |food_item| %>
                 <div class="well row <%= cycle('white-bg', '') %>">
                     <div class='col-sm-4'>
                         <%= link_to user_food_item_path(id: food_item.id) do %>
-                            <h2><%= food_item.name %></h2>
+                            <h3><%= food_item.name %></h3>
                         <% end %>
                     </div>
                     <div class='col-sm-4'>
@@ -15,6 +18,7 @@
                     <div class='col-sm-4'>
                         <p>Purchased from: <%= food_item.supplier %> on <%= food_item.purchase_date %></p>
                         <p>Cost: $<%= food_item.price_per_unit %> per <%= food_item.units %></p>
+                        <%= link_to "Delete", user_food_item_path(user_id: current_user.id, id: food_item.id), method: :delete, class: "btn btn-default" %>
                     </div>
                 </div>
             <% end %>
