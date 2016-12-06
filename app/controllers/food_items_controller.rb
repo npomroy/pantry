@@ -30,6 +30,38 @@ class FoodItemsController < ApplicationController
         @food_items = Food_Item.where("user_id = ?", params[:user_id])
    end
    
+   # GET /users/:user_id/food_items/:id
+   def show
+       @food_item = Food_Item.find( params[:id])
+   end
+   
+   # PUT to /users/:user_id/food_items/:id
+   def update
+      @food_item = Food_Item.find( params[:id] ) 
+      if @food_item.update_attributes( food_item_params )
+          flash[:success] = "Food Item Updated"
+          redirect_to user_food_item_path(user_id: current_user.id, id: params[:id])
+      else
+          render action: :show
+      end
+   end
+   
+#   # PUT to /users/:user_id/profile
+#   def update
+#       # Retrieve user from database
+#       @user = User.find( params[:user_id] )
+#       # Retrieve taht user's profile
+#       @profile = @user.profile
+#       # Mass assign edited profile attributes and save
+#       if @profile.update_attributes( profile_params )
+#           flash[:success] = "Profile updated"
+#           # redirect to their profile page
+#           redirect_to user_path(id: params[:user_id])
+#       else
+#           render action: :edit
+#       end
+#   end
+   
    # DELETE /users/:user_id/food_items/:id
    def destroy
        Food_Item.find(params[:id]).destroy

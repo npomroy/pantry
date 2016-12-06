@@ -1,0 +1,20 @@
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-6 col-md-offset-3'>
+            <h1 class='text-center'><%= @food_item.name %></h1>
+            <p>Stock: <%= @food_item.stored_amount %> <%= @food_item.units %></p>
+            <p>Best Before: <%= @food_item.expiry %></p>
+            <p>Purchased from: <%= @food_item.supplier %> on <%= @food_item.purchase_date %></p>
+            <p>Cost: $<%= @food_item.price_per_unit %> per <%= @food_item.units %></p><br/>
+            <%= form_for @food_item, url: user_food_item_path do |f| %>
+                <div class='form-group'>
+                    <%= f.label :new_amount %>
+                    <%= f.text_field :stored_amount, class: 'form-control' %>
+                </div>
+                <div class='form-group'>
+                    <%= f.submit "Update", class: 'btn btn-primary' %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
