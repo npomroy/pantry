@@ -22,6 +22,12 @@ class FoodItemsController < ApplicationController
       end
    end
    
+   # GET /users/:user_id/food_items
+   def index
+        @user = User.find( params[:user_id] )
+        @food_items = Food_Item.where("user_id = ?", params[:user_id])
+   end
+   
    private
     def food_item_params
         params.require(:food_item).permit(:name, :user_id, :units, :supplier, :price_per_unit, :stored_amount, :purchase_date, :expiry, :description) 
