@@ -9,4 +9,9 @@ class PagesController < ApplicationController
     
     def about
     end
+    
+    
+    def my_account
+       @user = User.find( current_user.id)
+    end
 end

@@ -1,0 +1,16 @@
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-6 col-md-offset-3'>
+            <div class='well'>
+                <h1 class='text-center'>My Account</h1>
+                <% if current_user.profile %>
+                    <%= link_to "Edit your profile", edit_user_profile_path( current_user.id ), class: 'btn btn-default btn-lg btn-block' %>
+                    <%= link_to 'View your profile', user_path( current_user.id ), class: 'btn btn-default btn-lg btn-block' %>
+                <% else %>
+                    <%= link_to "Create your profile", new_user_profile_path(user_id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
+                <% end %>
+                <%= link_to "Update password/Cancel", edit_user_registration_path, class: 'btn btn-default btn-lg btn-block' %>
+            </div>
+        </div>
+    </div>
+</div>

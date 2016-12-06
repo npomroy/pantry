@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   get 'faq', to: 'pages#faq'
   get 'about', to: 'pages#about'
+  get 'my_account', to: 'pages#my_account'
   resources :contacts, only: :create
   get 'contact-us', to: 'contacts#new', as: 'new_contact'
 end
