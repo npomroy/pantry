@@ -39,4 +39,5 @@
       </div>
     <% end %>
   </div>
+  <%= link_to "Create Food Item", new_user_food_item_path(user_id: current_user.id ) if user_signed_in? %>
 </div>

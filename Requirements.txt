@@ -1,0 +1,4 @@
+User Food Items
+* Each user has many food items
+* User should see link to new food item on food item index
+* User should be able to create and view food items
