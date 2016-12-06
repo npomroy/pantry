@@ -1,4 +1,6 @@
 class FoodItemsController < ApplicationController
+    before_action :authenticate_user!
+    before_action :only_current_user
    
    # GET to /users/:user_id/food_items/new
    def new
@@ -31,5 +33,10 @@ class FoodItemsController < ApplicationController
    private
     def food_item_params
         params.require(:food_item).permit(:name, :user_id, :units, :supplier, :price_per_unit, :stored_amount, :purchase_date, :expiry, :description) 
+    end
+    
+    def only_current_user
+        @user = User.find( params[:user_id] )
+       redirect_to(root_url) unless @user == current_user
     end
 end
