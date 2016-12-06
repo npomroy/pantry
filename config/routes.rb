@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :users do
     resource :profile
   end
+  resources :users do
+    resources :food_items
+  end
   get 'faq', to: 'pages#faq'
   get 'about', to: 'pages#about'
   resources :contacts, only: :create
