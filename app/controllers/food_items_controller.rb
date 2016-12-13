@@ -46,22 +46,6 @@ class FoodItemsController < ApplicationController
       end
    end
    
-#   # PUT to /users/:user_id/profile
-#   def update
-#       # Retrieve user from database
-#       @user = User.find( params[:user_id] )
-#       # Retrieve taht user's profile
-#       @profile = @user.profile
-#       # Mass assign edited profile attributes and save
-#       if @profile.update_attributes( profile_params )
-#           flash[:success] = "Profile updated"
-#           # redirect to their profile page
-#           redirect_to user_path(id: params[:user_id])
-#       else
-#           render action: :edit
-#       end
-#   end
-   
    # DELETE /users/:user_id/food_items/:id
    def destroy
        Food_Item.find(params[:id]).destroy
