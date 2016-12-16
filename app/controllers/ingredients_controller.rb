@@ -9,11 +9,16 @@ class IngredientsController < ApplicationController
        @ingredient = Ingredient.new( ingredient_params )
        if @ingredient.save
            flash[:success] = "Ingredient created"
-           redirect_to root_path
+           redirect_to ingredients_path
        else
            flash[:error] = "Ingredient creation failed"
            render action: :new
        end
+    end
+    
+    def destroy
+       Ingredient.find(params[:id]).destroy
+       redirect_to ingredients_path
     end
     
     def index
