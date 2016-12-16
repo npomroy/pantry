@@ -14,6 +14,11 @@ class RecipesController < ApplicationController
       end
    end
    
+   def destroy
+        Recipe.find(params[:id]).destroy
+        redirect_to recipes_path
+   end
+   
    def index
         @recipes = Recipe.all 
    end
