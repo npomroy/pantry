@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <% @recipes.each do |recipe| %>
+                <div class="well">
+                    <%= recipe.name %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

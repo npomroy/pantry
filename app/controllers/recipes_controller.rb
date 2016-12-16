@@ -14,6 +14,10 @@ class RecipesController < ApplicationController
       end
    end
    
+   def index
+        @recipes = Recipe.all 
+   end
+   
    private
         def recipe_params
            params.require(:recipe).permit(:name, :prep_time, :bake_time, :instructions, :details) 
