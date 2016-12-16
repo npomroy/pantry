@@ -4,10 +4,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :users do
     resource :profile
-  end
-  resources :users do
     resources :food_items
   end
+  resources :ingredients
   get 'faq', to: 'pages#faq'
   get 'about', to: 'pages#about'
   get 'my_account', to: 'pages#my_account'
