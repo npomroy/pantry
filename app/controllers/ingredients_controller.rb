@@ -16,6 +16,10 @@ class IngredientsController < ApplicationController
        end
     end
     
+    def index
+       @ingredients = Ingredient.all 
+    end
+    
     private
         def ingredient_params
            params.require(:ingredient).permit(:name, :units, :serving_size, :price_per_serving, :type, :storage) 
