@@ -4,7 +4,9 @@
             <h1 class="text-center">Ingredient List</h1>
             <% @ingredients.each do |ingredient| %>
                 <div class="well">
-                    <h2><%= ingredient.name %></h2>
+                    <%= link_to ingredient_path(id: ingredient.id) do %>
+                        <h2><%= ingredient.name %></h2>
+                    <% end %>
                 </div>
             <% end %>
         </div>
