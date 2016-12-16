@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161216134652) do
+ActiveRecord::Schema.define(version: 20161216153007) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 20161216134652) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "prep_time"
+    t.integer  "bake_time"
+    t.text     "instructions"
+    t.text     "details"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
