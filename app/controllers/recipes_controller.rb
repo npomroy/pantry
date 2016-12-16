@@ -18,6 +18,17 @@ class RecipesController < ApplicationController
         @recipe = Recipe.find(params[:id]) 
    end
    
+   def update
+        @recipe = Recipe.find(params[:id])
+        if @recipe.update_attributes( recipe_params )
+            flash[:success] = "Recipe updated"
+            redirect_to recipe_path(id: params[:id])
+        else
+            flash[:error] = "Recipe update failed"
+            render action: :show
+        end
+   end
+   
    def destroy
         Recipe.find(params[:id]).destroy
         redirect_to recipes_path
