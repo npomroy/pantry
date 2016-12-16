@@ -3,7 +3,35 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="well">
                 <h2 class="text-center">New Ingredient</h2>
-                <%= render "form" %>
+                <%= form_for @ingredient, url: ingredients_path do |f| %>
+                    <div class="form-group">
+                        <%= f.label :name %>
+                        <%= f.text_field :name, class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label :units %>
+                        <%= f.text_field :units, class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label :serving_size %>
+                        <%= f.number_field :serving_size, class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label :price_per_serving %>
+                        <%= f.number_field :price_per_serving, class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label :type %>
+                        <%= f.text_field :type, class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label :storage %>
+                        <%= f.text_field :storage, class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.submit :submit, class: "btn btn-primary" %>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>

@@ -20,6 +20,21 @@ class IngredientsController < ApplicationController
        @ingredient = Ingredient.find(params[:id]) 
     end
     
+    def edit
+       @ingredient = Ingredient.find(params[:id]) 
+    end
+    
+    def update
+       @ingredient = Ingredient.find(params[:id])
+       if @ingredient.update_attributes( ingredient_params )
+           flash[:success] = "Ingredient updated"
+           redirect_to ingredient_path(id: params[:id])
+       else
+           flash[:error] = "Ingredient creation failed"
+           render action: :show
+       end
+    end
+    
     def destroy
        Ingredient.find(params[:id]).destroy
        redirect_to ingredients_path
