@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :food_items
   end
   resources :ingredients
+  resources :recipes
   get 'faq', to: 'pages#faq'
   get 'about', to: 'pages#about'
   get 'my_account', to: 'pages#my_account'
