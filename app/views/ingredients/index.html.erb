@@ -1,1 +1,12 @@
-<%= @ingredients.inspect %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h1 class="text-center">Ingredient List</h1>
+            <% @ingredients.each do |ingredient| %>
+                <div class="well">
+                    <h2><%= ingredient.name %></h2>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
