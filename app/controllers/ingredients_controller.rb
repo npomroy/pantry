@@ -16,6 +16,10 @@ class IngredientsController < ApplicationController
        end
     end
     
+    def show
+       @ingredient = Ingredient.find(params[:id]) 
+    end
+    
     def destroy
        Ingredient.find(params[:id]).destroy
        redirect_to ingredients_path
